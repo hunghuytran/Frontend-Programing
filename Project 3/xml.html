@@ -1,0 +1,140 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+   // jQuery skall alltid finnas inom detta block
+	txt ="";
+	$("#knapp").click(function(){
+	$.ajax({
+  	type: "GET", 
+  	dataType: "xml", //respons motsvarar xml
+  	url: "proxy3.php?proxy_url=http://rss.cnn.com/rss/edition.rss", // xml och rss(special xml)
+  	success: function(xml){
+  	for (i=3;i<8;i++)
+  		{
+   		txt = txt + "<a href='"+$(xml).find('link').eq(i).text()+"'>"+$(xml).find('title').eq(i).text()+"</a><br/>"; // motsvarar xml - - delen !
+   		}
+   	$("#jqrutan").html(txt);
+  	}
+ 	});
+	});
+});
+
+
+</script>
+<script type="text/javascript">
+var url;
+function loadXMLDoc(url)
+{
+var xmlhttp;
+var txt,xx,x,i;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    txt="Nyheter";
+    x=xmlhttp.responseXML.documentElement.getElementsByTagName("item"); // vart är den första item. söker efter ett tag som heter item
+    for (i=0;i<5;i++)
+      {
+      txt=txt + "<br/>"; //bryter rad!
+      xx=x[i].getElementsByTagName("title"); // tar alla title i xml
+      xy=x[i].getElementsByTagName("link"); // tar alla link i xml
+		{
+        
+          txt=txt + "<a href='" + xy[0].firstChild.nodeValue +"'>"+ xx[0].firstChild.nodeValue + "</a>" ; //text= bryter rad + <a href~ länkar link och title!                                                             
+		}
+	 }
+	 }
+    document.getElementById('rutan').innerHTML=txt;
+	}
+url = "proxy3.php?proxy_url="+url;	
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+</script>
+
+
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>XML med AJAX</h3>
+<p>Måste köras genom cgi som finns <a href='https://cgi.arcada.fi/~tranhung/xml.html'>här</a></p>
+<section style="width: 600px;">
+<form>
+<select onchange="loadXMLDoc(this.value);">
+  <option value="">Välj </option>
+  <option value="http://www.nasa.gov/rss/image_of_the_day.rss">NASA</option>
+  <option value="http://www.macworld.com/index.rss">MACworld</option>
+  <option value="http://sports.yahoo.com/top/rss.xml">YahooSPORT</option>
+</select> 
+</form>
+<div id="rutan" style="width:600px;"><p>AJAX AND JavaScript.</p></div>
+</section>
+<section>
+<button id="knapp">Ladda CNN-Topnews</button>
+<div id="jqrutan"><p>AJAX AND JQUERY.</p></div>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+
+
+</body>
+
+</html>

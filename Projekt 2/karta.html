@@ -1,0 +1,111 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+document.onmousedown=coordinates;
+document.onmouseup=mouseup;
+
+function coordinates(e)
+{
+if (e == null) { e = window.event;}
+var sender = (typeof( window.event ) != "undefined" ) ? e.srcElement : e.target;
+
+if (sender.id=="bilden")
+  {
+// raden under är flyttad
+  movMeId=document.getElementById("bilden");
+  mouseover=true;
+  pleft=parseInt(movMeId.style.left);
+  ptop=parseInt(movMeId.style.top);
+  xcoor=e.clientX;
+  ycoor=e.clientY;
+  document.onmousemove=moveImage;
+  return false;
+  }
+else { return false; }
+}
+
+function moveImage(e)
+{
+if (e == null) { e = window.event;}
+movMeId.style.left=pleft+e.clientX-xcoor+"px";
+movMeId.style.top=ptop+e.clientY-ycoor+"px";
+return false;
+}
+
+function mouseup(e)
+{
+document.onmousemove=null;
+}
+function zoomaIn()
+{
+document.getElementById('bilden').style.width = (2*parseInt(document.getElementById('bilden').style.width)).toString()+"px";
+document.getElementById('bilden').style.top = (parseInt(document.getElementById('bilden').style.top) - 255).toString()+"px";
+document.getElementById('bilden').style.left = (parseInt(document.getElementById('bilden').style.left) - 175).toString()+"px";
+}
+function zoomaUt()
+{
+document.getElementById('bilden').style.width = (1/2*parseInt(document.getElementById('bilden').style.width)).toString()+"px";
+document.getElementById('bilden').style.top = (parseInt(document.getElementById('bilden').style.top) + 255).toString()+"px";
+document.getElementById('bilden').style.left = (parseInt(document.getElementById('bilden').style.left) + 175).toString()+"px";
+}
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 2</h1></td></tr>
+<tr><td><h4>- avancerad JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="dom.html">dom</a></li>
+	<li><a href="bild.html">bild</a></li>
+	<li><a href="anim.html">anim</a></li>
+	<li><a href="visa.html">visa</a></li>
+	<li><a href="timer.html">timer</a></li>
+	<li><a href="kursor.html">kursor</a></li>
+	<li><a href="skroll.html">skroll</a></li>
+	<li><a href="karta.html">karta</a></li>
+	<li><a href="pussel.html">pussel</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Kartvisare</h3>
+
+<div id="ruta" style="height: 300px; width: 400px; overflow:hidden;">
+<img id="bilden" src="sjokort.jpg" style="position: relative; top: -300px; left: -300px; width: 800px;"/>
+</div>
+<input type="button" value=" + " onclick="zoomaIn();">
+<input type="button" value=" - " onclick="zoomaUt();">
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>13.11.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

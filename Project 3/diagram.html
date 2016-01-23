@@ -1,0 +1,95 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+	google.load("visualization", "1", {packages:["corechart"]});
+	google.setOnLoadCallback(drawChart);
+	function drawChart() {
+	var data = google.visualization.arrayToDataTable([
+    ['Månad', 'Clothing', 'Food items', 'Restaurants'],
+    ['jan',  1.8,	0.9,	5.5],
+    ['feb',  1.6,	1.5,	3.2],
+    ['mar',  24.6,	4.3,	7.2],
+    ['apr',  12.7,	8.6,	1.5],
+	['maj',  8.2,	2.7,	0.5],	
+	['jun',  7.3,	1.7,	1.2],	
+	['jul',  5.5,	3.6,	0.3],
+	['aug',  1.2,	0.7,	0.4],
+	['sep',  1.6,	3.7,	0.7], 
+	['okt',  1,	1.9,	0.3], 
+	['nov',  2.1,	0.1,	1.8]
+	]);
+	var options = {
+    title: 'Takashimaya monthly sales report 2014',
+	backgroundColor: '#9E9E9E',
+    hAxis: {title: 'Månad', titleTextStyle: {color: 'blue'}},
+	vAxis: {title: '%', titleTextStyle: {color: '#0000FF'}}
+	};
+	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+	chart.draw(data, options);
+}
+</script>
+
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Denna sida visar hur man kan använda Google Chart för visualisering</h3>
+<p>Google Chart finns på <a href="https://developers.google.com/chart"/>https://developers.google.com/chart/</a></p>
+<section style="width:650px;">
+    <div id="chart_div" style="width: 600px; height: 250px;"></div>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+
+
+</body>
+
+</html>

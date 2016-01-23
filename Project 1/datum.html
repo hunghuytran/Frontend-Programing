@@ -1,0 +1,100 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Front-endprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+veckodagar = new Array("söndag","måndag","tisdag","onsdag","torsdag","fredag","lördag"); // convertera text till nummer form
+function raknaDatum()
+{
+idag = new Date(); // Sätter datum för idag
+antal = parseInt(document.data.dagar.value); // Antalet dagar
+dagensdag = idag.getDate(); // Ta fram datumet för idag
+nyttdatum = dagensdag + antal; // Addera antalet dagar från och med idag
+forfallodag = new Date(idag.getFullYear(),idag.getMonth(),nyttdatum); // Visar nya förfallodagen
+dagnummer = forfallodag.getDay(); // dag nummer = förfallodagen
+veckodag = veckodagar[dagnummer]; // Veckodag array
+
+if (dagnummer==6) // Om dagen är en lördag
+{
+nyforfallodag = new Date(forfallodag.getFullYear(), forfallodag.getMonth(), (nyttdatum+2));
+forfallodag = nyforfallodag;
+}
+if (dagnummer==0)  // Om dagen är en söndag
+{
+sunforfallodag = new Date(forfallodag.getFullYear(), forfallodag.getMonth(), (nyttdatum+1));
+forfallodag = sunforfallodag;
+}
+
+dagnummer = forfallodag.getDay();
+veckodag = veckodagar[dagnummer];
+
+
+svarstext = "Förfallodagen blir då "+forfallodag.getDate()+"."+
+(forfallodag.getMonth()+1)+"."+forfallodag.getFullYear()+" vilket är en "+veckodag+".";
+document.getElementById("svaret").innerHTML = svarstext;
+
+}
+
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 1</h1></td></tr>
+<tr><td><h4>- grundläggande JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="strang.html">strängar</a></li>
+	<li><a href="tal.html">tal</a></li>
+	<li><a href="lan.html">lån</a></li>
+	<li><a href="rgb.html">rgb</a></li>
+	<li><a href="sort.html">sort</a></li>
+	<li><a href="datum.html">datum</a></li>
+	<li><a href="ref.html">ref</a></li>
+	<li><a href="signum.html">signum</a></li>
+	<li><a href="webbrapport.html">webbrapport</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Datum i JavaScript</h3>
+<section id="bakgrund">
+<p>Ge antal dagar till förfallodag så kollar jag om det är lördag eller söndag.</p>
+<form name="data">
+Ge antal dagar: <input type="text" name="dagar" /><br/>
+<input type="button" value="Räkna" onclick="raknaDatum();">
+</form><br/>
+<div id="svaret">Här kommer svaret!</div>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>28.9.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

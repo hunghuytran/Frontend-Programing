@@ -1,0 +1,167 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+   // jQuery skall alltid finnas inom detta block
+
+});
+
+
+</script>
+<script type="text/javascript">
+function setCookie(cname,cvalue,exdays)
+{
+var d = new Date();
+d.setTime(d.getTime()+(exdays*24*60*60*1000));
+var expires = "expires="+d.toGMTString();
+document.cookie = cname + "=" + cvalue + "; " + expires;
+} 
+
+function getCookie(cname)
+{
+var name = cname + "=";
+var ca = document.cookie.split(';');
+for(var i=0; i<ca.length; i++)
+  {
+  var c = ca[i].trim();
+  if (c.indexOf(name)==0) return c.substring(name.length,c.length);
+  }
+return "";
+}
+
+function taBortCookie()
+{
+setCookie("namn","",0);
+setCookie("antalbesok","",0);
+setCookie("datum","",0);
+alert("Cookies borttagna!");
+} 
+
+function taBortStorage()
+{
+localStorage.removeItem("namn");
+localStorage.removeItem("antalbesok");
+localStorage.removeItem("datum");
+alert("Storage tömt!");
+} 
+
+</script>
+
+
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Cookies och Storage</h3>
+<section>
+<p>Med Cookies</p>
+<p id="v1c">Du har inte varit här tidigare!</p>
+<p id="v2c"></p>
+<p id="v3c"></p>
+</section>
+
+<section>
+<p>Med Storage</p>
+<p id="v1s">Du har inte varit här tidigare!</p>
+<p id="v2s"></p>
+<p id="v3s"></p>
+</section>
+<section>
+<input type="button" value="Ta bort cookie" onclick="taBortCookie();" />
+<input type="button" value="Ta bort storage" onclick="taBortStorage();" />
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+<script>
+
+var dittnamn = getCookie("namn");
+var storagenamn = localStorage.getItem("namn"); 
+
+if ((dittnamn!="")||(storagenamn!=null))
+// tidigare besökt
+  {
+  document.getElementById("v1c").innerHTML="Välkommen " + dittnamn + ". Trevligt att ses igen.";
+  document.getElementById("v1s").innerHTML="Välkommen " + storagenamn + ". Trevligt att ses igen.";
+  besok = getCookie("antalbesok");
+  besok = parseInt(besok)+1;
+  setCookie("antalbesok",besok,365);
+  lbesok = localStorage.getItem("antalbesok");
+  lbesok = parseInt(lbesok)+1;
+  localStorage.setItem("antalbesok", lbesok);
+  document.getElementById("v2c").innerHTML="Det är ditt " + besok + " här.";
+  document.getElementById("v2s").innerHTML="Det är ditt " + lbesok + " här.";  
+  fdatum = getCookie("datum");
+  ldatum = localStorage.getItem("datum");
+  document.getElementById("v3c").innerHTML="Du var här första gången här den " + fdatum + ".";
+  document.getElementById("v3s").innerHTML="Du var här första gången här den " + ldatum + ".";
+  if ((besok>10)||(lbesok>10)) {alert("Stick din väg!");}
+  
+  }
+else
+//ny besökare
+  {
+  dittnamn = prompt("Vad heter du?","");
+  if (dittnamn!="" && dittnamn!=null)
+    {
+	forsta = new Date();
+    setCookie("namn",dittnamn,365);
+    setCookie("antalbesok","1",365);
+    setCookie("datum",forsta,365);	
+	
+	localStorage.setItem("namn", dittnamn);
+	localStorage.setItem("antalbesok", "1");
+	localStorage.setItem("datum", forsta);
+    }
+  }
+ 
+</script>
+
+</body>
+
+</html>

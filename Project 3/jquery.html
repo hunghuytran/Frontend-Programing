@@ -1,0 +1,90 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+   // jQuery skall alltid finnas inom detta block
+	$("#ptag").mouseover(function(){
+		$("p").css("color","blue");
+		$("#ptag").html("Lasersword battle bear style");
+	});
+   $("#ptag").mouseout(function(){
+		$("p").css("color","black");
+		$("#ptag").html("Hidden message");
+	});
+	$("#gom").click(function(){
+		$("#minbild").fadeOut("2000");
+	});
+	$("#visa").click(function(){
+		$("#minbild").fadeIn("2000");
+	});
+   $("#anime").click(function(){
+		$("#minbild").animate({left:'200px', opacity:'0.5', height:'50px', width:'50'});
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>With JQuery</h3>
+<section style="width:200px;">
+<p id="ptag">Hidden message</p>
+<p>The force is strong with these bears</p>
+</section>
+<section style="height:160px; width:200px;">
+<div style="height:130px; width:180px;">
+<img id="minbild" src="bilder/bild3.jpg" width="160" style="position: relative; left: 0px;"/>
+</div>
+<input type="button" id="gom" value="Göm" /> <input type="button" id="visa" value="Visa" /> <input type="button" id="anime" value="Animera" />
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

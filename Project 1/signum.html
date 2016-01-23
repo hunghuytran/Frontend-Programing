@@ -1,0 +1,115 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Front-endprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+kontrolltecken = new Array("0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","H","J","K","L","M","N","P","R","S","T","U","V","W","X","Y");
+veckodagar = new Array("söndag","måndag","tisdag","onsdag","torsdag","fredag","lördag");
+function raknaSignum()
+{
+siffrorna = document.data.siffror.value;
+resten = (parseInt((siffrorna.substring(0, 6))+(siffrorna.substring(7, 10))))%31;
+document.data.kontroll.value = kontrolltecken[resten];
+Datum = new Date();
+Datum.setDate(parseInt(siffrorna.substring(0, 2)));
+Datum.setMonth(parseInt(siffrorna.substring(2, 4)-1));
+Datum.setYear(parseInt(siffrorna.substring(4, 6)));
+document.data.svarVecko.value = Datum.toDateString();
+könen = siffrorna.substring(9, 10);
+if (könen == 1)
+{ könen = "Man";
+}
+if (könen == 2)
+{ könen = "Kvinna";
+}
+if (könen == 0)
+{ könen = "Kvinna";
+}
+if (könen == 4)
+{ könen = "Kvinna";
+}
+if (könen == 6)
+{ könen = "Kvinna";
+}
+if (könen == 8)
+{ könen = "Kvinna";
+}
+if (könen == 3)
+{ könen = "Man";
+}if (könen == 5)
+{ könen = "Man";
+}if (könen == 7)
+{ könen = "Man";
+}if (könen == 9)
+{ könen = "Man";
+}
+document.data.svarKön.value = könen;
+}
+
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 1</h1></td></tr>
+<tr><td><h4>- grundläggande JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="strang.html">strängar</a></li>
+	<li><a href="tal.html">tal</a></li>
+	<li><a href="lan.html">lån</a></li>
+	<li><a href="rgb.html">rgb</a></li>
+	<li><a href="sort.html">sort</a></li>
+	<li><a href="datum.html">datum</a></li>
+	<li><a href="ref.html">ref</a></li>
+	<li><a href="signum.html">signum</a></li>
+	<li><a href="webbrapport.html">webbrapport</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Personsignum i JavaScript</h3>
+<section id="bakgrund">
+<p>Ge ditt signum så kollar jag kontrollsiffran.</p>
+<form name="data">
+Ge signom: <input type="text" name="siffror" /><br/>
+<input type="button" value="Räkna" onclick="raknaSignum();"><br/>
+Kontrollen: <input type="text" name="kontroll" /> <br/>
+Dag: <input type="text" name="svarVecko" /><br/>
+Kön: <input type="text" name="svarKön" /> 
+<div id="veckodag">Här kommer svaret!</div>
+</form>
+
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>28.9.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Front-endprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+tecken = new Array("a","b","c","d","e","f","g","h","0","1","2","3","4","5","6");
+ord = new Array();
+function strangar()
+{
+for (j=0; j<10; j++) // Start if j = 0 and stop when j is 10, add j+1.
+	{
+
+	strang = "";
+	for (i=1; i<9; i++)
+		{
+		slumptal = Math.floor((tecken.length)*Math.random()); // Equation for random number
+		bokstav = tecken[slumptal];
+		strang = strang + bokstav;
+		}
+	ord[j] = strang;	
+	}
+ord.sort();	
+svaren = "";
+for (j=0; j<10; j++)
+	{
+	svaren = svaren + ord[j] + "<br/>";
+	}
+document.getElementById("svaret").innerHTML ="Strängarna blev:<br/> "+svaren+"<br/>";
+
+}
+function reverse()
+{
+for (j=0; j<10; j++) // Start if j = 0 and stop when j is 10, add j+1.
+	{
+
+	strang = "";
+	for (i=1; i<9; i++)
+		{
+		slumptal = Math.floor((tecken.length)*Math.random()); // Equation for random number
+		bokstav = tecken[slumptal];
+		strang = strang + bokstav;
+		}
+	ord[j] = strang;	
+	}
+ord.sort();	
+ord.reverse();
+svaren = "";
+for (j=0; j<10; j++)
+	{
+	svaren = svaren + ord[j] + "<br/>";
+	}
+document.getElementById("svaret").innerHTML ="Strängarna blev:<br/> "+svaren+"<br/>";
+
+}
+
+
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 1</h1></td></tr>
+<tr><td><h4>- grundläggande JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="strang.html">strängar</a></li>
+	<li><a href="tal.html">tal</a></li>
+	<li><a href="lan.html">lån</a></li>
+	<li><a href="rgb.html">rgb</a></li>
+	<li><a href="sort.html">sort</a></li>
+	<li><a href="datum.html">datum</a></li>
+	<li><a href="ref.html">ref</a></li>
+	<li><a href="signum.html">signum</a></li>
+	<li><a href="webbrapport.html">webbrapport</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Sortering och slumpmässighet i JavaScript</h3>
+<section id="bakgrund">
+<p> Detta skript skapar tio slumpmässiga strängar och sorterar dem alfabetiskt.</p>
+<form name="data">
+<input type="button" value="Skapa och sortera" onclick="strangar();">
+<input type="button" value="Sortera i sjunkande ordning" onclick="reverse();">
+</form>
+<div id="svaret">Här kommer svaret!</div>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>28.9.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

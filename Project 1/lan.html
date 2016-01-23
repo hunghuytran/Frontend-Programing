@@ -1,0 +1,101 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Front-endprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+function fixaLanet()
+{
+var inbelopp, inlanetid, inranta, annuitet ;
+inbelopp = document.data.belopp.value;
+inlanetid = document.data.lanetid.value;
+inranta = document.data.ranta.value;
+inbelopp = inbelopp.replace(/,/g, ".");
+inlanetid = inlanetid.replace(/,/g, ".");
+inranta = inranta.replace(/,/g, ".");
+inbelopp = parseFloat(inbelopp);
+inlanetid = parseFloat(inlanetid);
+inranta = parseFloat(inranta);
+
+if ((isNaN(inbelopp))||(isNaN(inlanetid))||(isNaN(inranta))) 
+	{
+    window.alert("Något du gav var inte ett tal. Försök på nytt!");
+	} 
+else 
+	{
+	perioder=1;
+	periodranta = inranta/perioder;
+	totalperioder = inlanetid*perioder;
+	annuitet = inbelopp * (periodranta) / (1-(1+periodranta)^(totalperioder));
+    totala =  annuitet + inbelopp + "€";
+	document.data.annuitet.value = annuitet;
+	document.data.totalt.value = totala;
+	
+	}
+
+}
+
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 1</h1></td></tr>
+<tr><td><h4>- grundläggande JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="strang.html">strängar</a></li>
+	<li><a href="tal.html">tal</a></li>
+	<li><a href="lan.html">lån</a></li>
+	<li><a href="rgb.html">rgb</a></li>
+	<li><a href="sort.html">sort</a></li>
+	<li><a href="datum.html">datum</a></li>
+	<li><a href="ref.html">ref</a></li>
+	<li><a href="signum.html">signum</a></li>
+	<li><a href="webbrapport.html">webbrapport</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Annuitetslån i JavaScript</h3>
+<section>
+<form name="data">
+Ge belopp (€): <input type="text" name="belopp" /><br/>
+Ge låntid (år): <input type="text" name="lanetid" /><br/>
+Ge ränta (%): <input type="text" name="ranta" /><br/>
+månantligt belopp: <input type="text" name="annuitet" /><br/>
+totalt: <input type="text" name="totalt" /><br/>
+<input type="button" value="Räkna" onclick="fixaLanet();"
+</form>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>28.9.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

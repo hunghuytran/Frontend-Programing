@@ -1,0 +1,5 @@
+Detta är en textfil som sitter i samma katalog som ajax.html.
+Du kan dock söka vilken fil som helst t.ex. stil.css eller start.html
+
+Hälsningar
+Johnny

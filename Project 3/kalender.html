@@ -1,0 +1,99 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<style>
+table {		border: 0px;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 0.7em;
+	margin: 1px 0;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="namnsdagar.js"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+   // jQuery skall alltid finnas inom detta block
+	$( "#datepicker" ).datepicker({
+    	dateFormat: 'dd.mm.yy' , 
+    	firstDay: 1, 
+    	showWeek: true, 
+    	weekHeader: 'v',
+		monthNames: ['januari','februari','mars','april','maj','juni','juli','augusti','september','oktober','november','december'],
+		dayNamesMin: ['sö', 'må', 'ti', 'on', 'to', 'fr', 'lö']
+		});
+
+	
+	
+});
+</script>
+<script type="text/javascript">
+function visaNamnsdag()
+{
+
+}
+</script
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>jQuery kalender</h3>
+<section>
+<p>Mata in ett datum: <input type="text" id="datepicker" onchange="visaNamnsdag();"></p>
+</section>
+<section>
+<script type="text/javascript">
+document.write("<p>Datumet har "+namnsdagar["1.2"]+" som namnsdag namnsdag!</p>");
+</script>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

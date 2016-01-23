@@ -1,0 +1,78 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+function bytBild(nummer)
+{
+document.getElementByIdr("rutan").src = "bilder/bild"+nummer+".jpg"; // Style object properties. Prop style. HTML DOM Style Object
+document.getElementByIdr("rutan").style = "
+//htmldom css  style animation property
+}
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Project 2 - Front End Programering</h1></td></tr>
+<tr><td><h4>Avancerad JavaScript</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="dom.html">Dom</a></li>
+	<li><a href="bild.html">Bild</a></li>
+	<li><a href="anim.html">Anim</a></li>
+	<li><a href="visa.html">Visa</a></li>
+	<li><a href="timer.html">Timer</a></li>
+	<li><a href="kursor.html">Kursor</a></li>
+	<li><a href="skroll.html">Skroll</a></li>
+	<li><a href="karta.html">Karta</a></li>
+	<li><a href="pussel.html">Pussel</a></li>
+    <li><a href="web.html">Webbrap</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Bildvisare med zoom och transparens</h3>
+<section>
+<p>För musen över bilderna för att byta bild.</p>
+<img id="rutan" name="rutan" src="bilder/bild1.jpg" width="240" style="opacity:1.0;"/>
+<script type="text/javascript">
+</script> 
+</section>
+<section>
+<img name="b1" src="bilder/bild1.jpg" width="50" onmouseover="bytBild(1);"/> 
+<img name="b2" src="bilder/bild2.jpg" width="50" onmouseover="bytBild(2);"/>
+<img name="b3" src="bilder/bild3.jpg" width="50" onmouseover="bytBild(3);"/>
+<img name="b4" src="bilder/bild4.jpg" width="50" onmouseover="bytBild(4);"/>
+<img name="b5" src="bilder/bild5.jpg" width="50" onmouseover="bytBild(5);"/>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>13.11.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

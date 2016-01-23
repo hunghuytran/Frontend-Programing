@@ -1,0 +1,166 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+$(function () {
+    $(document).ready(function () {
+        Highcharts.setOptions({
+            global: {
+                useUTC: false
+            }
+        });
+
+        $('#container').highcharts({
+            chart: {
+                type: 'spline',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function () {
+
+                        // set up the updating of the chart each second
+                        var series = this.series[0];
+                        setInterval(function () {
+                            var x = (new Date()).getTime(); // current time
+                                var xmlhttp;
+  								xmlhttp=new XMLHttpRequest();
+								xmlhttp.onreadystatechange=function()
+								  {
+  									if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    								{
+									pos=xmlhttp.responseText.search("OMXSPI");
+									//	alert(xmlhttp.responseText.substr(pos+47, 5));	
+									y=xmlhttp.responseText.substr(pos+47, 5);
+									y=parseInt(y.replace(" ",""));
+									document.getElementById("varde").innerHTML="OMXSPI "+y;									
+									series.addPoint([x, y], true, true);
+ 								   	}
+								  }
+								xmlhttp.open("GET","proxy3.php?proxy_url=https://www.nordnet.fi/mux/web/marknaden/marknadsoversikt/marknadsoversiktSE.html",true);
+								xmlhttp.send();
+                                                        
+                        }, 10000);
+                    }
+                }
+            },
+            title: {
+                text: 'OMXSPI'
+            },
+            xAxis: {
+                type: 'datetime',
+                tickPixelInterval: 150
+            },
+            yAxis: {
+                title: {
+                    text: 'värde'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }],
+                max: 500,
+                min: 400,
+            },
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + "OMXSPI" + '</b><br/>' +
+                        Highcharts.dateFormat('%d.%m.%Y %H:%M:%S', this.x) + '<br/>' + "Index är " +
+                        Highcharts.numberFormat(this.y, 2);
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            exporting: {
+                enabled: false
+            },
+           series: [{
+                name: 'Random data',
+                data: (function () {
+                   // generate an array of random data
+                    var data = [],
+                        time = (new Date()).getTime(),
+                        i;
+
+                   for (i = -19; i <= 0; i += 1) {
+                       data.push({
+                           x: time + i * 10000,
+                           y: 0
+                       });
+                   }
+                   return data; 
+                }())
+            }]
+        });
+    });
+});
+
+</script>
+
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Denna sida använder HighCharts för visualisering av realtidsdata</h3>
+<p>Informationen om SVENSKA BÖRS <a href="http://www.nordnet.fi/">http://www.nordnet.fi/</a>. Kom ihåg cgi.arcada.fi!<br/>
+<a href="cgi.arcada.fi/~tranhung/dyngraf.html">här</a>.</p>
+<section style="width:650px;">
+  <div id="varde">OMXSPI</div>
+  <div id="container" style="width:100%; height:250px;"></div>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+
+
+</body>
+
+</html>

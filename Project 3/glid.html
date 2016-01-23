@@ -1,0 +1,143 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<style>
+table {		border: 0px;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 0.7em;
+	margin: 1px 0;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="namnsdagar.js"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ // CSS property background color: rgb(r,g,b)
+	 $( "#sliderR" ).slider({
+	orientation: "vertical",
+	range: "min",
+	min: 0,
+	max: 255,
+	value: 127,
+	slide: function( event, ui ) {
+		$( "#vardeR" ).val( ui.value );
+		}
+		});
+		
+	 $( "#sliderG" ).slider({
+	orientation: "vertical",
+	range: "min",
+	min: 0,
+	max: 255,
+	value: 127,
+	slide: function( event, ui ) {
+		$( "#vardeG" ).val( ui.value );
+		}
+		});
+		
+	 $( "#sliderB" ).slider({
+	orientation: "vertical",
+	range: "min",
+	min: 0,
+	max: 255,
+	value: 127,
+	slide: function( event, ui ) {
+		$( "#vardeB" ).val( ui.value );
+		}
+		});
+});
+</script>
+<script type="text/javascript">
+function visaFarg()
+{
+document.sliders.rhex.value=(parseInt(document.sliders.rdec.value)).toString(16);
+document.sliders.ghex.value=(parseInt(document.sliders.gdec.value)).toString(16);
+document.sliders.bhex.value=(parseInt(document.sliders.bdec.value)).toString(16);
+if(document.sliders.rhex.value.length < 2) {document.sliders.rhex.value ="0"+document.sliders.rhex.value;}
+if(document.sliders.ghex.value.length < 2) {document.sliders.ghex.value="0"+document.sliders.ghex.value;}
+if(document.sliders.bhex.value.length < 2) {document.sliders.bhex.value="0"+document.sliders.bhex.value;}
+document.getElementById("farg").style.backgroundColor="#"+document.sliders.rhex.value+document.sliders.ghex.value+document.sliders.bhex.value; //DOM object
+}
+</script
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Glidpotentiometrar i html5 och JQuery UI</h3>
+<section id="farg" style="background-color:#7f7f7f;">
+Med HTML5
+<form name="sliders">
+R:<input type="range" name="rdec" min="0" max="255" step="1" value="127" onchange="visaFarg();"/><input type="text" name="rhex" value="7f" size="1" /><br/>
+G:<input type="range" name="gdec" min="0" max="255" step="1" value="127" onchange="visaFarg();"/><input type="text" name="ghex" value="7f" size="1" /><br/>
+B:<input type="range" name="bdec" min="0" max="255" step="1" value="127" onchange="visaFarg();"/><input type="text" name="bhex" value="7f" size="1" /><br/>
+</form>
+</section>
+Med jQuery
+<section id="fargQ" style="background-color:#7f7f7f;">
+<table style="border:0px;">
+<style>
+td { border: 0px;}
+</style>
+<tr>
+<td><div id="sliderR" height="200"></div></td>
+<td><div id="sliderG" height="200"></div></td>
+<td><div id="sliderB" height="200"></div></td>
+</tr>
+<tr>
+<td>R:<input type="text" id="vardeR" size="3" value="127"></td>
+<td>G:<input type="text" id="vardeG" size="3" value="127"></td>
+<td>B:<input type="text" id="vardeB" size="3" value="127"></td>
+</tr>
+</table>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

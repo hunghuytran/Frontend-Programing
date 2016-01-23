@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+function muspos(event)
+{
+document.position.xpos.value= event.clientX;
+document.position.ypos.value= event.clientY;
+
+if ((event.clientX < 205) && (event.clientX > 195 )) {alert("Nästan fullträff i x-riktning");}
+
+}
+function musnu(event)
+{
+document.position.xnu.value= event.clientX;
+document.position.ynu.value= event.clientY;
+
+}
+
+
+
+</script>
+</head>
+
+<body oncontextmenu="return false;" onmousedown="muspos(event);" onmousemove="musnu(event);">
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 2</h1></td></tr>
+<tr><td><h4>- avancerad JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="dom.html">dom</a></li>
+	<li><a href="bild.html">bild</a></li>
+	<li><a href="anim.html">anim</a></li>
+	<li><a href="visa.html">visa</a></li>
+	<li><a href="timer.html">timer</a></li>
+	<li><a href="kursor.html">kursor</a></li>
+	<li><a href="skroll.html">skroll</a></li>
+	<li><a href="karta.html">karta</a></li>
+	<li><a href="pussel.html">pussel</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Musposition eller kursor</h3>
+<p>Detta är ett litet exempel på hur man avläser kursorns position.
+</p>
+<form name="position">
+x: <input type="text" name="xpos"/><br/>
+y: <input type="text" name="ypos"/>
+<br/>
+x: <input type="text" name="xnu"/><br/>
+y: <input type="text" name="ynu"/>
+<p>Ett fint ritskript finns <a href="example5.html">här</a>.</p>
+</form>
+<section>
+
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>13.11.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

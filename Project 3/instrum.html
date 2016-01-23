@@ -1,0 +1,165 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+   <script type="text/javascript">
+      google.load("visualization", "1", {packages:["gauge"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['°C', 0],
+          ['Fuktighet', 0],
+          ['Vindby', 0],
+		  ['Lufttryck', 0],
+        ]);
+
+        var options = {
+          width: 400, height: 120,
+          minorTicks: 5
+        };
+
+        var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+
+ setInterval(function() {         
+          var xmlhttp;
+  			xmlhttp=new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+  			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+				pos=xmlhttp.responseText.search("Temperatur");
+				// alert(xmlhttp.responseText.substr(pos+48, 5));	
+				y=xmlhttp.responseText.substr(pos+48, 5);
+				y=parseFloat(y.replace(",","."));
+				data.setValue(0, 1, y);
+				chart.draw(data, options);
+ 				}
+			}
+			xmlhttp.open("GET","proxy3.php?proxy_url=https://sv.ilmatieteenlaitos.fi/lokalvadret",true);
+			xmlhttp.send(); 
+        }, 1000);
+	   setInterval(function() {         
+          var xmlhttp;
+  			xmlhttp=new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+  			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+				pos=xmlhttp.responseText.search("Fuktighet");
+				// alert(xmlhttp.responseText.substr(pos+48, 5));	
+				y=xmlhttp.responseText.substr(pos+47, 6);
+				y=parseFloat(y.replace(",","."));
+				data.setValue(1, 1, y);
+				chart.draw(data, options);
+ 				}
+			}
+			xmlhttp.open("GET","proxy3.php?proxy_url=https://sv.ilmatieteenlaitos.fi/lokalvadret",true);
+			xmlhttp.send(); 
+        }, 1000);
+	   setInterval(function() {         
+          var xmlhttp;
+  			xmlhttp=new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+  			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+				pos=xmlhttp.responseText.search("Vindby");
+				// alert(xmlhttp.responseText.substr(pos+48, 5));	
+				y=xmlhttp.responseText.substr(pos+44, 3);
+				y=parseFloat(y.replace(",","."));
+				data.setValue(2, 1, y);
+				chart.draw(data, options);
+ 				}
+			}
+			xmlhttp.open("GET","proxy3.php?proxy_url=https://sv.ilmatieteenlaitos.fi/lokalvadret",true);
+			xmlhttp.send(); 
+        }, 1000);
+			   setInterval(function() {         
+          var xmlhttp;
+  			xmlhttp=new XMLHttpRequest();
+			xmlhttp.onreadystatechange=function()
+			{
+  			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    			{
+				pos=xmlhttp.responseText.search("Lufttryck");
+				// alert(xmlhttp.responseText.substr(pos+48, 5));	
+				y=xmlhttp.responseText.substr(pos+47, 6);
+				y=parseFloat(y.replace(",","."));
+				data.setValue(3, 1, y);
+				chart.draw(data, options);
+ 				}
+			}
+			xmlhttp.open("GET","proxy3.php?proxy_url=https://sv.ilmatieteenlaitos.fi/lokalvadret",true);
+			xmlhttp.send(); 
+        }, 1000);
+      }
+    </script>
+	
+
+
+
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+		<li><a href="web.html">web</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Denna sida visar hur man kan använda google graph</h3>
+<p>Google graph https://developers.google.com/chart/</p>
+</section>
+<section style="width:400px;, height:120px;">
+  <div id="chart_div" style="width: 400px; height: 120px;"></div>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+
+
+</body>
+
+</html>

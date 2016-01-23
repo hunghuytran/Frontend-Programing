@@ -1,0 +1,114 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Front-endprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+function fixaTalet()
+{
+var talet, heltal, binartal, hexatal, oktal, invtal, inverstal;
+talet = document.data.mittTal.value;
+talet = talet.replace(/,/g, ".");
+talet = parseFloat(talet);
+ 
+ 
+if (isNaN(talet)) 
+	{
+    window.alert("Du gav inte ett tal. Försök på nytt");
+	} 
+else 
+	{
+    document.data.roten.value = Math.sqrt(talet);
+	}
+	document.data.kvadraten.value = Math.pow(talet, 2);
+	
+heltal = parseInt(talet);
+binartal = heltal.toString(2);
+hexatal = heltal.toString(16);
+oktal = heltal.toString(8);
+invtal = " ";
+inverstal = heltal.toString();
+
+for (i = inverstal.length; i > 0; i--) 
+{ 
+  invtal = invtal + inverstal.charAt(i-1);
+}
+
+
+
+document.data.invers.value = invtal;
+document.data.binar.value =  binartal;
+document.data.oktal.value =  oktal;
+document.data.hexa.value =  hexatal;
+
+
+
+
+}
+
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 1</h1></td></tr>
+<tr><td><h4>- grundläggande JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="strang.html">strängar</a></li>
+	<li><a href="tal.html">tal</a></li>
+	<li><a href="lan.html">lån</a></li>
+	<li><a href="rgb.html">rgb</a></li>
+	<li><a href="sort.html">sort</a></li>
+	<li><a href="datum.html">datum</a></li>
+	<li><a href="ref.html">ref</a></li>
+	<li><a href="signum.html">signum</a></li>
+	<li><a href="webbrapport.html">webbrapport</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Tal i JavaScript</h3>
+<section>
+<form name="data">
+Ge ett tal: <input type="text" name="mittTal" /><br/>
+Roten: <input type="text" name="roten" /><br/>
+Kvadraten: <input type="text" name="kvadraten" /><br/>
+Invers: <input type="text" name="invers" /><br/>
+binär(2): <input type="text" name="binar" /><br/>
+oktal: <input type="text" name="oktal" /><br/>
+hexadecimalt: <input type="text" name="hexa" /><br/>
+<input type="button" value="Räkna" onclick="fixaTalet();"
+</form>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>28.9.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

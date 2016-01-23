@@ -1,0 +1,122 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+   // jQuery skall alltid finnas inom detta block
+	$("#knapp").click(function(){
+	$.get("ajax.txt",function(data,status){
+		alert("Data: " + data + "\nStatus: " + status);
+		});
+});
+});
+
+
+</script>
+<script type="text/javascript">
+function sokMedAJAX()
+{
+var xmlhttp, sidan;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+// Flytta svaret till webbsidan	
+    document.getElementById("svar").innerHTML=xmlhttp.responseText;
+    }
+  }
+sidan = document.sok.fraga.value;  
+xmlhttp.open("GET",sidan,true);
+xmlhttp.send();
+}
+</script>
+
+
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 3</h1></td></tr>
+<tr><td><h4>- JavaScript bibliotek -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="jquery.html">jquery</a></li>
+	<li><a href="kalender.html">kalender</a></li>
+	<li><a href="glid.html">glid</a></li>
+	<li><a href="cookies.html">cookies</a></li>
+	<li><a href="ajax.html">ajax</a></li>
+	<li><a href="xml.html">xml</a></li>
+	<li><a href="diagram.html">diagram</a></li>
+	<li><a href="instrum.html">instrum</a></li>
+	<li><a href="dyngraf.html">dyngraf</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>AJAX grunder</h3>
+<section>
+<form name="sok">
+<p>SÖK filer från katalog</p>
+<input type="text" name="fraga" value="ajax.txt"/>
+<input type="button" value="AJAX och JS" onclick="sokMedAJAX()"/>
+</form>
+</section>
+<br/>
+<section>
+<div id="svar" width="600" height="400">!</div>
+</section>
+<section>
+<form name="sokjq">
+<p>SÖK filer från katalog</p>
+<input type="text" name="fragajq" value="ajax.txt"/>
+<input id="knapp" type="button" value="AJAX och jQuery"/>
+</form>
+</section>
+<br/>
+<section>
+<div id="svarjq" width="600" height="400">!</div>
+</section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: hung.tran(at)arcada.fi</td><td>2.12.2014</td></tr></table></footer>
+</div>
+
+
+</body>
+
+</html>

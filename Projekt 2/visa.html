@@ -1,0 +1,79 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+var objekt;
+bilder = new Array("blir inte","1","4","3","3","2","1","4","2");
+function vandBild(objekt)
+{
+bak = document.getElementById(objekt).src.substr(document.getElementById(objekt).src.length-14,14);
+if (bak == "bilder/bak.jpg")
+{
+document.getElementById(objekt).src = "bilder/bild"+bilder[objekt.substr(4,1)]+".jpg";
+}
+else
+{
+document.getElementById(objekt).src = "bilder/bak.jpg";
+}
+}
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 2</h1></td></tr>
+<tr><td><h4>- avancerad JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="dom.html">dom</a></li>
+	<li><a href="bild.html">bild</a></li>
+	<li><a href="anim.html">anim</a></li>
+	<li><a href="visa.html">visa</a></li>
+	<li><a href="timer.html">timer</a></li>
+	<li><a href="kursor.html">kursor</a></li>
+	<li><a href="skroll.html">skroll</a></li>
+	<li><a href="karta.html">karta</a></li>
+	<li><a href="pussel.html">pussel</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Visa och göm</h3>
+<p>Detta är ett litet memoryspel men bilderna borde ännu läggas ut slumpmässigt.</p>
+<img id="ruta1" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta1');"/>
+<img id="ruta2" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta2');"/>
+<img id="ruta3" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta3');"/>
+<img id="ruta4" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta4');"/><br/>
+<img id="ruta5" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta5');"/>
+<img id="ruta6" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta6');"/>
+<img id="ruta7" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta7');"/>
+<img id="ruta8" src="bilder/bak.jpg" width="120" onclick="vandBild('ruta8');"/>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>13.11.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

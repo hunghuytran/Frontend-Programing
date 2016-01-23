@@ -1,0 +1,103 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>front-endprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript"> // Type of script file
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+
+<script type="text/javascript"> 
+function fixaStrangar() // function name !
+{
+var formSvar, bytt, tillversaler, uniLangd, uniKoden, gemKoden;
+formSvar = document.indata.minstrang.value;
+bytt =  formSvar.replace(/å/g, "aa");
+bytt =  bytt.replace(/Å/g, "AA"); 
+tillversaler = bytt.toUpperCase();
+omvant = " ";
+uniLangd = formSvar.length;
+uniKoden = " ";
+gemKoden = bytt.toLowerCase();
+for (i=0;i<uniLangd;i=i+1)
+{
+uniKoden = uniKoden +" "+formSvar.charCodeAt(i);
+}
+
+
+for (i = tillversaler.length; i > 0; i--) 
+{ 
+  omvant = omvant + tillversaler.charAt(i-1);
+}
+  document.indata.versaleromv.value = omvant; 
+  document.indata.formSkander.value = bytt; 
+  document.indata.formLangd.value = formSvar.length; 
+  document.indata.unikod.value = uniKoden;
+  document.indata.gemener.value = gemKoden;
+}
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 1</h1></td></tr>
+<tr><td><h4>- grundläggande JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="strang.html">strängar</a></li>
+	<li><a href="tal.html">tal</a></li>
+	<li><a href="lan.html">lån</a></li>
+	<li><a href="rgb.html">rgb</a></li>
+	<li><a href="sort.html">sort</a></li>
+	<li><a href="datum.html">datum</a></li>
+	<li><a href="ref.html">ref</a></li>
+	<li><a href="signum.html">signum</a></li>
+	<li><a href="webbrapport.html">webbrapport</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Strängar i javascript</h3>
+
+<form name="indata">
+Sträng: <input type="text" name="minstrang"/><br/>
+Sträng längd:  <input type="text" name="formLangd"/><br/>
+Utan skander:  <input type="text" name="formSkander"/><br/>
+Gemener:  <input type="text" name="gemener"/><br/>
+Versaler omvänt:  <input type="text" name="versaleromv"/><br/>
+Unicode:  <input type="text" name="unikod"/><br/>
+<input type="button" value="Modifiera" onclick="fixaStrangar() ;"
+</form>
+<section>
+<script> //JavaScript 
+// Detta är en modell hur man direkt kan kommunicera från JavaScript
+//svar = window.prompt ("Vad heter du?", "Skriv ditt namn här!"); // Text konstanter
+//window.alert("Du gav texter"+svar+". Eller hur?"); // + betyder addering av konstanter
+</script>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>28.10.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

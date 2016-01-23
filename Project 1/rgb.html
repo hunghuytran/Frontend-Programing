@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Front-endprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+function hexTillDec()
+{
+var fhexR, fhexG, fhexB, hexfarg ;
+fhexR = document.data.hexR.value;
+fhexG = document.data.hexG.value;
+fhexB = document.data.hexB.value;
+hexfarg = "#"+ fhexR + fhexG + fhexB;
+document.getElementById("bakgrund").style.backgroundColor=hexfarg;
+document.data.decR.value = parseInt(fhexR,16);
+document.data.decG.value = parseInt(fhexG,16);
+document.data.decB.value = parseInt(fhexB,16);
+}
+
+function decTillHex()
+{
+var dhexR, dhexG, dhexB, dexfarg, dexR, dexG, dexB ;
+dhexR = document.data.decR.value;
+dhexG = document.data.decG.value;
+dhexB = document.data.decB.value;
+dexfarg = "#"+ dexR + dexG + dexB;
+document.getElementById("bakgrund").style.backgroundColor=dexfarg;
+dexR = parseInt(dhexR);
+dexG = parseInt(dhexG);
+dexB = parseInt(dhexB);
+document.data.hexR.value = dexR.toString(16);
+document.data.hexG.value = dexG.toString(16);
+document.data.hexB.value = dexB.toString(16);
+}
+
+   
+           
+
+
+</script>
+</head>
+
+<body>
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 1</h1></td></tr>
+<tr><td><h4>- grundläggande JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="strang.html">strängar</a></li>
+	<li><a href="tal.html">tal</a></li>
+	<li><a href="lan.html">lån</a></li>
+	<li><a href="rgb.html">rgb</a></li>
+	<li><a href="sort.html">sort</a></li>
+	<li><a href="datum.html">datum</a></li>
+	<li><a href="ref.html">ref</a></li>
+	<li><a href="signum.html">signum</a></li>
+	<li><a href="webbrapport.html">webbrapport</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Rbp i JavaScript</h3>
+<section id="bakgrund">
+<form name="data">
+Ge hexR: <input type="text" name="hexR" /><br/>
+Ge hexG: <input type="text" name="hexG" /><br/>
+Ge hexB: <input type="text" name="hexB" /><br/>
+Ge decR: <input type="text" name="decR" /><br/>
+Ge decG: <input type="text" name="decG" /><br/>
+Ge decB: <input type="text" name="decB" /><br/>
+<input type="button" value="hex->dec" onclick="hexTillDec();">
+<input type="button" value="dec->hex" onclick="decTillHex();">
+</form>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>28.9.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<title>Klientprogrammering </title>
+<link type="text/css" rel="stylesheet" href="stil.css" />
+<script type="text/javascript">
+if (document.all)
+{
+document.createElement("article");
+document.createElement("footer");
+document.createElement("header");
+document.createElement("section");
+document.createElement("nav");
+document.createElement("aside");
+}
+</script>
+<script type="text/javascript">
+i = 0
+function skrolla()
+{
+t1 = setInterval(function(){flyttaUpp()},50)
+}
+function flyttaUpp()
+{
+i = i+1;
+document.getElementById("fel").value = i;
+document.getElementById("nyheter").style.top = (parseInt(document.getElementById("nyheter").style.top) - 1)+"px";
+}
+</script>
+</head>
+
+<body onload="skrolla();">
+<div id="sidan">
+<header>
+<table>
+<tr><td><h1>Projekt 2</h1></td></tr>
+<tr><td><h4>- avancerad JavaScript -</h4></td></tr>
+</table>
+</header>
+<nav>
+<ul>
+	<li><a href="dom.html">dom</a></li>
+	<li><a href="bild.html">bild</a></li>
+	<li><a href="anim.html">anim</a></li>
+	<li><a href="visa.html">visa</a></li>
+	<li><a href="timer.html">timer</a></li>
+	<li><a href="kursor.html">kursor</a></li>
+	<li><a href="skroll.html">skroll</a></li>
+	<li><a href="karta.html">karta</a></li>
+	<li><a href="pussel.html">pussel</a></li>
+</ul>
+</nav>
+<div id="innehall">
+<article>
+<h3>Nyhetsskroller</h3>
+<p>Detta är ett litet exempel på hur man gör en nyhetsskroller.
+</p>
+<div id="ruta" style="height: 50px; width: 400px; overflow:hidden;">
+<div id="nyheter" style="height: 400px; width: 400px; position: relative; top: -10px; left: 0px;">
+	<ul data-vr-zone="Senaste nytt" style="margin: 0px 0px 0.75em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: Arial, Verdana, Helvetica, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; font-stretch: inherit; line-height: 21px; list-style: square; color: rgb(51, 51, 51); letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255);">
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/huub-stevens-tillbaka-i-stuttgart" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Huub Stevens tillbaka i Stuttgart</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">13:17</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/4h-samman-sprakgrupper" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		4H för samman språkgrupper<span class="Apple-converted-space">&nbsp;</span></a><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">13:15</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/runeberg-som-familjefar-foll-tisdagssnackarna-i-smaken" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Runeberg som familjefar föll Tisdagssnackarna i smaken</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">13:03</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/bonderna-fick-positivt-besked-om-utbetalningar" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Bönderna fick positivt besked om utbetalningar</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">13:00</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/zelmerlow-och-kvinnaboske-redo-mello" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Zelmerlöw och Kvinnaböske redo för Mello</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">12:48</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/tok-stanger-tre-restauranger-i-abo-centrum" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		TOK stänger tre restauranger i Åbo centrum</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">12:45</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/skolgymnastiken-favoritamne-och-hatobjekt" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Skolgymnastiken – favoritämne och hatobjekt</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">12:36</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/tysk-skola-med-finland-som-forebild" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Tysk skola: Med Finland som förebild</a><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">12:24</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/lassila-kan-skriva-malvaktshistoria-i-kvall" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Lassila kan skriva målvaktshistoria i kväll</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">12:23</span></li>
+		<li class="" data-vr-contentbox="" style="margin: 0px 0px 0.25em 1.5em; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; list-style: square; float: none; color: rgb(119, 119, 119); overflow: visible; word-break: break-word;">
+		<a href="http://svenska.yle.fi/artikel/2014/11/25/mera-rehabilitering-och-farre-anstaltsplatser" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 1.1em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(0, 51, 119); text-decoration: underline;">
+		Mera rehabilitering och färre anstaltsplatser</a><span class="Apple-converted-space">&nbsp;</span><span class="time" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; font-family: inherit; font-size: 0.85em; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; color: rgb(153, 153, 153); display: inline;">12:21</span></li>
+	</ul>
+</div>
+</div>
+
+
+<section>
+Fel: <input type="text" id="fel">
+</section>
+</article>
+<aside>
+</aside>
+</div>
+<footer><table><tr><td>&copy;Copyright,2014</td><td>Webmaster: johnny.bistrom(at)arcada.fi</td><td>13.11.2014</td></tr></table></footer>
+</div>
+</body>
+
+</html>
